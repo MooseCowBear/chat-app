@@ -1,5 +1,7 @@
 # Chat App
 
+Note: Has been refactored [here](https://github.com/MooseCowBear/mercury).
+
 This is an implementation of the [Odin Project's](https://www.theodinproject.com) Messaging App project. It is a fullstack messaging app with a React frontend and Rails backend.
 
 Hosted on [fly.io](https://dawn-sound-3814.fly.dev/).
