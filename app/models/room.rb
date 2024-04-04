@@ -99,7 +99,7 @@ class Room < ApplicationRecord
   def private_room_destroy(user)
     # bc want private chats to remain until both parties "delete"
     # so that non-deleter retains chats on their end
-    if interlocutor_one_id.nil? || interlocutor_two_id.nil?
+    if missing_interlocutor?
       self.destroy
     elsif interlocutor_one?(user) && marked_delete_two
       self.destroy
@@ -110,6 +110,10 @@ class Room < ApplicationRecord
     elsif interlocutor_two?(user)
       self.update(marked_delete_two: true, restored_at_two: nil)
     end
+  end
+
+  def missing_interlocutor?
+    interlocutor_one_id.nil? || interlocutor_two_id.nil?
   end
 
   protected

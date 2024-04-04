@@ -267,6 +267,7 @@ RSpec.describe Room, type: :model do
     end
 
     it "destroys room if either interlocutor is nil" do
+      allow(:room).to receive(:missing_interlocutor?).and_return true
       room2 = create(:room, name: "room", is_private: true, interlocutor_one: @user1)
       room2.private_room_destroy(@user1)
       expect { room2.reload }.to raise_error(ActiveRecord::RecordNotFound)
