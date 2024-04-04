@@ -81,7 +81,7 @@ export default ImageForm = ({ currentRoom, setUploadImage }) => {
       if (data.hasOwnProperty("errors")) {
         errorSetter(data.errors.join(", "));
       } else {
-        setUploadImage(false);
+        setUploadImage(false); // changing back to text message form...
         setError(null);
       }
     };
